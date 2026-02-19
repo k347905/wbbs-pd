@@ -1,0 +1,19 @@
+[project]
+name = "wbbs-pd"
+version = "0.1.0"
+description = "Passport Verification API Evaluation Platform"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "aiosqlite>=0.20",
+    "httpx>=0.27",
+    "pydantic-settings>=2.4",
+    "python-multipart>=0.0.9",
+]
+
+[tool.setuptools]
+packages = ["backend"]
+
+[project.optional-dependencies]
+dev = ["ruff"]
