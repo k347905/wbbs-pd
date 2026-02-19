@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - app-data:/app/data
+    environment:
+      - API_BASE_URL=${API_BASE_URL:-}
+      - SERVICE_NAME=${SERVICE_NAME:-rpa-really-passports}
+      - CLIENT_ID=${CLIENT_ID:-}
+      - CLIENT_SECRET=${CLIENT_SECRET:-}
+      - DATABASE_PATH=data/passport_checks.db
+      - POLL_INTERVAL_SEC=${POLL_INTERVAL_SEC:-5}
+      - POLL_TIMEOUT_SEC=${POLL_TIMEOUT_SEC:-120}
+    restart: unless-stopped
+
+volumes:
+  app-data:
