@@ -1,7 +1,8 @@
 FROM node:22-alpine AS frontend-build
+ENV NODE_OPTIONS="--max-old-space-size=512"
 WORKDIR /app/frontend
 COPY frontend/package.json frontend/package-lock.json ./
-RUN npm ci
+RUN npm ci --maxsockets 5
 COPY frontend/ ./
 RUN npm run build
 
