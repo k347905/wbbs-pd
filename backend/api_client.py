@@ -20,7 +20,6 @@ async def create_request(
                 "number": number,
                 "firstname": firstname,
                 "lastname": lastname,
-                "client_id": "eval",
             }
         }
     }
